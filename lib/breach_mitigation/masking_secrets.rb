@@ -23,7 +23,7 @@ module BreachMitigation
         return false if encoded_masked_token.nil? || encoded_masked_token.empty?
 
         begin
-          masked_token = Base64.strict_decode64(encoded_masked_token)
+          masked_token = Base64.strict_decode64(encoded_masked_token.to_s)
         rescue ArgumentError # encoded_masked_token is invalid Base64
           return false
         end

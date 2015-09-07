@@ -45,5 +45,9 @@ describe BreachMitigation::MaskingSecrets do
     it "returns false for a token of the wrong length" do
       masking_secrets.valid_authenticity_token?(session, SecureRandom.base64(2)).should == false
     end
+
+    it "returns false for a non-string token" do
+      masking_secrets.valid_authenticity_token?(session, ["foo", "bar"]).should == false
+    end
   end
 end
