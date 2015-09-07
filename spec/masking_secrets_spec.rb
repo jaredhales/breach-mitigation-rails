@@ -26,28 +26,34 @@ describe BreachMitigation::MaskingSecrets do
 
     it "returns true for a valid unmasked token" do
       valid_unmasked = session[:_csrf_token]
-      masking_secrets.valid_authenticity_token?(session, valid_unmasked).should == true
+      masking_secrets.valid_authenticity_token?(session, valid_unmasked)
+      .should == true
     end
 
     it "returns false for an invalid unmasked token" do
-      masking_secrets.valid_authenticity_token?(session, SecureRandom.base64(32)).should == false
+      masking_secrets.valid_authenticity_token?(session, SecureRandom.base64(32))
+      .should == false
     end
 
     it "returns true for a valid masked token" do
       valid_masked = masking_secrets.masked_authenticity_token(session)
-      masking_secrets.valid_authenticity_token?(session, valid_masked).should == true
+      masking_secrets.valid_authenticity_token?(session, valid_masked)
+      .should == true
     end
 
     it "returns false for an invalid masked token" do
-      masking_secrets.valid_authenticity_token?(session, SecureRandom.base64(64)).should == false
+      masking_secrets.valid_authenticity_token?(session, SecureRandom.base64(64))
+      .should == false
     end
 
     it "returns false for a token of the wrong length" do
-      masking_secrets.valid_authenticity_token?(session, SecureRandom.base64(2)).should == false
+      masking_secrets.valid_authenticity_token?(session, SecureRandom.base64(2))
+      .should == false
     end
 
     it "returns false for a non-string token" do
-      masking_secrets.valid_authenticity_token?(session, ["foo", "bar"]).should == false
+      masking_secrets.valid_authenticity_token?(session, ["foo", "bar"])
+      .should == false
     end
   end
 end
