@@ -7,8 +7,12 @@ module BreachMitigation
         require 'breach_mitigation/length_hiding'
         if Rails.version.include?("3.0.")
           app.config.middleware.use "BreachMitigation::LengthHiding"
+        elsif Rails.version >= '5'
+          app.config.middleware.insert_before Rack::ETag,
+            BreachMitigation::LengthHiding
         else
-          app.config.middleware.insert_before "Rack::ETag", "BreachMitigation::LengthHiding"
+          app.config.middleware.insert_before "Rack::ETag"
+            "BreachMitigation::LengthHiding"
         end
       end
     end
