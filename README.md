@@ -1,6 +1,6 @@
 # breach-mitigation-rails
 
-Makes Rails 3 and 4 applications less susceptible to the BREACH /
+Makes Rails 3, 4 and 5 applications less susceptible to the BREACH /
 CRIME attacks. See [breachattack.com](http://breachattack.com/) for
 details.
 
