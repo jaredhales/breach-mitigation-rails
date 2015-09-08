@@ -1,8 +1,8 @@
 # breach-mitigation-rails
 
-Makes Rails 3, 4 and 5 applications less susceptible to the BREACH /
-CRIME attacks. See [breachattack.com](http://breachattack.com/) for
-details.
+This is an updated version of the original gem, now compatible with Rails 5.
+It makes Rails 3, 4 and 5 applications less susceptible to the BREACH / CRIME
+attacks. See [breachattack.com](http://breachattack.com/) for details.
 
 ## How it works
 
@@ -34,7 +34,7 @@ do to prevent or mitigate this class of attacks.
 
 Add this line to your Rails Gemfile:
 
-    gem 'breach-mitigation-rails'
+    gem 'breach-mitigation-rails', github: 'jonatack/breach-mitigation-rails'
 
 And then execute:
 
