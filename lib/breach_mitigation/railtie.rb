@@ -33,7 +33,7 @@ module ActionController
           .valid_authenticity_token?(session, request.headers['X-CSRF-Token'])
     end
 
-    def form_authenticity_token
+    def form_authenticity_token(form_options: {})
       BreachMitigation::MaskingSecrets.masked_authenticity_token(session)
     end
   end
