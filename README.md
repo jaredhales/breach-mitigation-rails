@@ -1,5 +1,10 @@
 # breach-mitigation-rails
 
+# CSRF handling in Rails 5 already handles BREACH:
+# See https://github.com/rails/rails/blob/master/actionpack/lib/action_controller/metal/request_forgery_protection.rb#L296
+
+# I wouldn't suggest we actually use this, it's a temp stop-gap for now while we work on upgrading to Rails 5
+
 This is an updated version of the original gem, now compatible with Rails 5.
 It makes Rails 3, 4 and 5 applications less susceptible to the BREACH / CRIME
 attacks. See [breachattack.com](http://breachattack.com/) for details.
